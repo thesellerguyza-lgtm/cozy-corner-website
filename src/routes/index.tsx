@@ -6,6 +6,10 @@ import bomaImg from "@/assets/boma-dinner.jpg";
 import driveImg from "@/assets/game-drive.jpg";
 import lionsImg from "@/assets/lions.jpg";
 import poolImg from "@/assets/pool.jpg";
+import logoImg from "@/assets/logo.jpg";
+import lodgePath from "@/assets/lodge-path.jpg";
+import lodgeGrounds from "@/assets/lodge-grounds.jpg";
+import lodgePool from "@/assets/lodge-pool.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -28,6 +32,7 @@ function Index() {
       <About />
       <Experiences />
       <Accommodation />
+      <Event />
       <Gallery />
       <Contact />
       <Footer />
@@ -39,8 +44,9 @@ function Nav() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/40">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#top" className="font-display text-xl tracking-wide text-foreground">
-          Matjulu<span className="text-primary"> · </span>Kruger
+        <a href="#top" className="flex items-center gap-2 font-display text-lg tracking-wide text-foreground">
+          <img src={logoImg} alt="Matjulu Kruger Lodge" className="h-9 w-9 object-contain" />
+          <span>Matjulu Kruger Lodge</span>
         </a>
         <nav className="hidden md:flex gap-8 text-sm text-muted-foreground">
           <a href="#about" className="hover:text-foreground transition">About</a>
@@ -97,25 +103,27 @@ function About() {
         <div>
           <p className="eyebrow text-primary mb-4">Our story</p>
           <h2 className="font-display text-4xl md:text-5xl leading-tight">
-            A quiet corner of Kruger, kept as it was meant to be.
+            Where luxury meets the wild.
           </h2>
           <p className="mt-6 text-muted-foreground leading-relaxed">
-            Tucked between the Matjulu Spruit and the granite hills of the south-western
-            Lowveld, our lodge is small by design. A handful of suites, a long open boma,
-            and rangers who grew up reading these tracks.
+            Matjulu Kruger Lodge sits in the south-western Kruger National Park near
+            Malelane — a region known for its rugged mountain bushveld and the scenic
+            Matjulu Loop. Built on the banks of the Matjulu Spruit, surrounded by rocky
+            hills and dry riverbeds, the lodge offers a mountainous habitat unlike any
+            other corner of the park.
           </p>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            We don't compete with the wilderness — we step gently into it,
-            then leave you to it.
+            The area is iconic for the Matjulu Pride — a prominent lion pride often
+            sighted around the Matjulu Waterhole, the H3 road, and near Berg-en-Dal.
           </p>
           <div className="mt-10 grid grid-cols-3 gap-6 border-t border-border pt-8">
-            <Stat n="6" l="Private suites" />
-            <Stat n="2×" l="Daily game drives" />
+            <Stat n="3" l="Tour packages" />
+            <Stat n="R2 500" l="From, per night" />
             <Stat n="24/7" l="Bush views" />
           </div>
         </div>
         <div className="relative aspect-[4/5] overflow-hidden">
-          <img src={elephantImg} alt="Bull elephant at sunrise in Kruger" loading="lazy" className="w-full h-full object-cover" />
+          <img src={lodgeGrounds} alt="Matjulu Kruger Lodge grounds with mountain backdrop" loading="lazy" className="w-full h-full object-cover" />
         </div>
       </div>
     </section>
@@ -133,10 +141,10 @@ function Stat({ n, l }: { n: string; l: string }) {
 
 function Experiences() {
   const items = [
-    { img: driveImg, title: "Open-vehicle safaris", text: "Guided morning and dusk drives in private 4×4s with our resident rangers." },
-    { img: bomaImg, title: "Boma dinners", text: "Long-table meals around an open fire under the southern sky." },
-    { img: lionsImg, title: "Big Five country", text: "Lion, leopard, elephant, buffalo and rhino — all within the lodge's traverse." },
-    { img: poolImg, title: "Bush downtime", text: "An infinity pool, a quiet deck, and a copy of something good to read." },
+    { img: driveImg, title: "Kruger National Park tour", text: "Day safari drive into Kruger with lunch at Kruger Shayati. Package 3 — R2 500 pp sharing, one night." },
+    { img: lionsImg, title: "Panorama Route tour", text: "God's Window, Three Rondavels, Bourke's Luck Potholes and the Blyde River Canyon. Package 2 — R3 000 pp sharing, one night." },
+    { img: elephantImg, title: "Makhonjwa Mountain & Barberton", text: "Barberton transfer tour and braai via Shiyalongubo Dam. Package 1 — R2 500 pp sharing, one night." },
+    { img: bomaImg, title: "Boma dinners & braai", text: "Long-table meals around an open fire — the Matjulu way to end a day in the bush." },
   ];
   return (
     <section id="experiences" className="py-28 px-6 bg-secondary text-secondary-foreground">
@@ -166,28 +174,28 @@ function Accommodation() {
     <section id="stay" className="py-28 px-6">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
         <div className="relative aspect-[4/5] overflow-hidden order-2 md:order-1">
-          <img src={suiteImg} alt="Luxury safari tented suite interior" loading="lazy" className="w-full h-full object-cover" />
+          <img src={suiteImg} alt="King-size suite interior at Matjulu Kruger Lodge" loading="lazy" className="w-full h-full object-cover" />
         </div>
         <div className="order-1 md:order-2">
           <p className="eyebrow text-primary mb-4">The suites</p>
           <h2 className="font-display text-4xl md:text-5xl leading-tight">
-            Canvas, copper, and the sound of the bush.
+            Wake up in comfort. Sleep in nature.
           </h2>
           <p className="mt-6 text-muted-foreground leading-relaxed">
-            Each of our six suites opens directly onto the wild — king beds beneath
-            mosquito-netted four-posters, private decks, outdoor showers, and the kind of
-            silence you forgot existed.
+            Experience the perfect blend of modern elegance and African warmth.
+            Private rondavel-style suites with king beds, premium linen and tranquil
+            interiors inspired by the bushveld around them.
           </p>
           <ul className="mt-8 space-y-3 text-sm">
-            {["King bed with linen four-poster", "Private deck & outdoor shower", "Air-conditioned interior", "Full board, all drinks included", "Two daily guided safaris"].map((f) => (
+            {["King-size comfort & premium linen", "Air-conditioned luxury for all seasons", "Tranquil interiors inspired by nature", "Private, peaceful atmosphere", "Pool deck with mountain views"].map((f) => (
               <li key={f} className="flex gap-3 items-start">
                 <span className="text-primary mt-1">✦</span>
                 <span className="text-foreground/85">{f}</span>
               </li>
             ))}
           </ul>
-          <a href="#contact" className="inline-block mt-10 bg-primary text-primary-foreground px-8 py-3 text-sm uppercase tracking-[0.2em] hover:bg-primary/90 transition">
-            Enquire about a stay
+          <a href="https://wa.me/27826764239" target="_blank" rel="noreferrer" className="inline-block mt-10 bg-primary text-primary-foreground px-8 py-3 text-sm uppercase tracking-[0.2em] hover:bg-primary/90 transition">
+            Book your stay
           </a>
         </div>
       </div>
@@ -195,8 +203,42 @@ function Accommodation() {
   );
 }
 
+function Event() {
+  return (
+    <section id="event" className="py-28 px-6 bg-secondary text-secondary-foreground">
+      <div className="max-w-5xl mx-auto text-center">
+        <p className="eyebrow text-accent mb-4">Upcoming event</p>
+        <h2 className="font-display text-4xl md:text-6xl leading-[1.05]">2nd Annual Hiking Tour</h2>
+        <p className="mt-6 font-display text-xl text-secondary-foreground/80 italic">Hike. Connect. Belong.</p>
+        <p className="mt-4 max-w-2xl mx-auto text-secondary-foreground/75 leading-relaxed">
+          Step into the wild and experience the Kruger like never before. Guided hikes
+          through breathtaking landscapes, unforgettable moments, and true connection with nature.
+        </p>
+        <div className="mt-12 grid sm:grid-cols-2 md:grid-cols-4 gap-8 text-left max-w-3xl mx-auto">
+          <EventDetail label="Date" value="Sat, 20 June 2026" />
+          <EventDetail label="Arrival" value="06:00 · Hike 07:00–12:00" />
+          <EventDetail label="Ticket" value="R150 per person" />
+          <EventDetail label="Boma Dinner" value="Optional · R250 pp" />
+        </div>
+        <a href="https://wa.me/27728670157" target="_blank" rel="noreferrer" className="inline-block mt-12 bg-accent text-accent-foreground px-8 py-3 text-sm uppercase tracking-[0.2em] hover:bg-accent/90 transition">
+          Book on WhatsApp
+        </a>
+      </div>
+    </section>
+  );
+}
+
+function EventDetail({ label, value }: { label: string; value: string }) {
+  return (
+    <div>
+      <p className="eyebrow text-accent mb-2">{label}</p>
+      <p className="font-display text-lg text-secondary-foreground">{value}</p>
+    </div>
+  );
+}
+
 function Gallery() {
-  const imgs = [elephantImg, bomaImg, driveImg, lionsImg, poolImg, suiteImg];
+  const imgs = [lodgePath, lodgePool, elephantImg, lodgeGrounds, lionsImg, suiteImg];
   return (
     <section id="gallery" className="py-28 px-6 bg-muted">
       <div className="max-w-6xl mx-auto">
@@ -230,12 +272,13 @@ function Contact() {
         </p>
 
         <div className="mt-14 grid md:grid-cols-3 gap-10 text-left">
-          <ContactBlock label="Email" value="stay@matjululodge.co.za" href="mailto:stay@matjululodge.co.za" />
-          <ContactBlock label="Phone" value="+27 (0) 13 000 0000" href="tel:+27130000000" />
-          <ContactBlock label="Location" value="Kruger National Park, Mpumalanga, South Africa" />
+          <ContactBlock label="WhatsApp / Call" value="+27 82 676 4239" href="https://wa.me/27826764239" />
+          <ContactBlock label="WhatsApp / Call" value="+27 72 867 0157" href="https://wa.me/27728670157" />
+          <ContactBlock label="Location" value="Matsulu, near Malelane Gate · Kruger National Park" />
         </div>
 
         <div className="mt-16 pt-10 border-t border-background/20 flex flex-wrap gap-6 justify-center text-xs uppercase tracking-[0.2em] text-background/60">
+          <span>matjulukrugerlodge.co.za</span>
           <span>Mon–Sun · Reception 06:00–22:00</span>
         </div>
       </div>
